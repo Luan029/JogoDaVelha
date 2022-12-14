@@ -18,6 +18,8 @@ function TicTacToe() {
   const checkDraw = () =>{
     if(board.every(item => item !== "")) setWinner("E")
   }
+  let resultX = 0
+  let resultO = 0
   const checkWinner= () =>{
     const possibleWaysToWin = [
       [board[0], board[1], board[2]],
@@ -31,14 +33,19 @@ function TicTacToe() {
       [board[0], board[4], board[8]],
       [board[2], board[4], board[6]],
     ]
-
+    
     possibleWaysToWin.forEach(cells =>{
-      if(cells.every(cell => cell === "X")) setWinner("X")
-      if(cells.every(cell => cell === "O")) setWinner("O")
+      if(cells.every(cell => cell === "X")) {
+        setWinner("X")
+        console.log(setWinner)
+      }
+      if(cells.every(cell => cell === "O")) {
+        setWinner("O")
+      }
     });
     checkDraw();
   }
-  
+ 
   useEffect(checkWinner, [board]);
 
   const resetGame = () =>{
@@ -54,12 +61,13 @@ function TicTacToe() {
           {board.map((item, index) => (
             <div key={index} className={`cell ${item}`} onClick={() => handleCellClick(index)}>{item}</div> 
           ))}
-        </div>
+        </div> 
         {winner &&
           <footer>
             {winner !== "E" ?
               <h2 className='winner-message'>
                 <span className={winner}>{winner}</span>Venceu!
+                
               </h2>
               :
               <h2 className='winner-message'>

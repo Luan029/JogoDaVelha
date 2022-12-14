@@ -24,9 +24,9 @@ body{
 }
 .board{
   display: grid;
-  grid-template-columns: repeat(3, 240px);
-  grid-template-rows: repeat(3, 240px);
-  gap: 1rem;
+  grid-template-columns: repeat(3, 150px);
+  grid-template-rows: repeat(3, 150px);
+  gap: 0.8rem;
 }
 .board.game-over{
   opacity: 0.8;
@@ -77,4 +77,35 @@ button{
   background-color: #4caf50;
   color: white;
   font-size: 1.2rem;
+}
+@media(max-width: 600px){
+  .board{
+    grid-template-columns: repeat(3, 110px);
+    grid-template-rows: repeat(3, 110px);
+    gap: 0.8rem;
+  }
+}
+@media(max-width: 300px){
+  .board{
+    grid-template-columns: repeat(3, 50px);
+    grid-template-rows: repeat(3, 50px);
+    gap: 0.8rem;
+  }
+  .title{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 2rem;
+  }
+  .cell{
+    font-size: 1.5rem;
+  }
+  .winner-message{
+    margin: 1rem;
+    font-size: 1rem;
+  }
+  button{
+    font-size: 0.8rem;
+    padding: 0.6rem 1rem;
+  }
 }
